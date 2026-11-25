@@ -947,6 +947,104 @@ main {
   }
 }
 
+/* ==========================================================
+   RESPONSIVIDADE MOBILE - Formulários de Doar Dinheiro / Doar Itens
+   Escopo: apenas telas <= 760px. O desktop (> 760px) não é afetado.
+   Os alvos usam classes que já existem nos elementos gerados pelo
+   home.js; !important é necessário porque o layout dessas seções
+   usa estilos inline. Nada é ocultado: só reorganiza as grades.
+   ========================================================== */
+@media (max-width: 760px) {
+  /* Cabeçalhos verdes/azuis das seções: menos espaço lateral */
+  .content-card [style*="padding: 28px 32px"] {
+    padding: 22px 18px !important;
+  }
+
+  /* Conteúdo dos formulários: padding interno reduzido */
+  .content-card[style*="padding: 32px"],
+  .content-card form[style*="padding: 32px"],
+  .content-card div[style*="padding: 32px"] {
+    padding: 22px 16px !important;
+  }
+
+  /* Categorias de itens: 4 -> 2 colunas */
+  .item-cat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  .item-cat-btn span {
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+    display: inline-block !important;
+  }
+
+  /* Contadores de itens: 2 -> 1 coluna (nome + botões +/− sempre visíveis) */
+  .item-counter-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  /* Área de toque dos botões adicionar/remover */
+  .item-plus-btn,
+  .item-minus-btn {
+    width: 40px !important;
+    height: 40px !important;
+    flex: 0 0 auto !important;
+  }
+
+  .item-plus-btn .icon,
+  .item-minus-btn .icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Campos do doador: 2 -> 1 coluna */
+  .form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* Valores pré-definidos: 5 -> 3 colunas */
+  .preset-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .preset-btn {
+    padding: 14px 8px !important;
+    font-size: 14px !important;
+  }
+
+  /* Métodos de pagamento: 3 -> 1 coluna (ícone ao lado do texto) */
+  .pay-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .pay-btn {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 14px 16px !important;
+    text-align: left !important;
+  }
+
+  .pay-btn > div {
+    margin-bottom: 0 !important;
+  }
+
+  .pay-btn span {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+  }
+
+  /* Botão principal do formulário de dinheiro em largura total */
+  .content-card form button[type="submit"][style*="padding: 0 32px"] {
+    width: 100% !important;
+    padding: 0 16px !important;
+  }
+}
+
 @media (max-width: 420px) {
   .header-inner,
   .page-shell {
@@ -973,5 +1071,31 @@ main {
   .cookie-button {
     left: 8px;
     bottom: 8px;
+  }
+
+  /* Formulários de doação em telas bem estreitas (320-430px) */
+  .content-card[style*="padding: 32px"],
+  .content-card form[style*="padding: 32px"],
+  .content-card div[style*="padding: 32px"] {
+    padding: 18px 12px !important;
+  }
+
+  /* Valores pré-definidos: 3 -> 2 colunas em 320px */
+  .preset-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  /* Categorias: rótulos um pouco menores, sem quebrar linha */
+  .item-cat-btn span {
+    font-size: 11px !important;
+  }
+
+  .item-cat-btn {
+    padding: 16px 8px !important;
+  }
+
+  /* Títulos das seções não estouram a largura */
+  .content-card h2[style*="font-size: 22px"] {
+    font-size: 19px !important;
   }
 }
